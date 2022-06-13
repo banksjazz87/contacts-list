@@ -9,7 +9,10 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Hello World</h1>
+        <?php include "../modules/header.php" ?>
+    <?php
+echo "hello World"
+?>
         
     </body>
 </html>
