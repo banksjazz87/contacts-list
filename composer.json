@@ -1,0 +1,15 @@
+{
+    "name": "chris/contacts_php",
+    "autoload": {
+        "psr-4": {
+            "Chris\\ContactsPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chris",
+            "email": "banksjazz87@gmail.com"
+        }
+    ],
+    "require": {}
+}

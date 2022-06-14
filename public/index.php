@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <?php include "../modules/header.php" ?>
-    <?php
-echo "hello World"
+<?php
+    //declare(strict_types=1);
+    require_once dirname(__DIR__) . '/vendor/autoload.php';
+    require('../modules/header.php');
+    require('../modules/footer.php');
+    echo "<h1>hello World</h1>";
 ?>
         
-    </body>
-</html>
+
