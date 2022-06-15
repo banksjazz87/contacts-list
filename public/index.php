@@ -4,6 +4,7 @@
     require('../modules/header.php');
     require('../modules/footer.php');
     echo "<h1>hello World</h1>";
+    require('../modules/form.php');
 ?>
         
 
