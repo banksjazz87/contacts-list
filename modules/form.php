@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<form method="get" action="index.php">
+<form method="post" action="/public/index.php">
     <label for="name">Name:</label>
     <input type="text" name="name"/>
     <br/>
@@ -12,9 +12,10 @@
     <input type="submit" value="Submit"/>
 
     <?php 
-        if (isset($__POST['submit'])) {
-            echo '<p>Chris</p>';
+        if (isset($_POST['submit'])) {
+           echo "Yes";
         }
+        
     ?>
 
 </form>
