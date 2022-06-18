@@ -1,4 +1,12 @@
 <?php
+  //initialize an empty array for storing all of the contacts
+  $allContacts = [];
+  $allContacts = array();
+  $allContacts = (array) null;
+?>
+  
+
+<?php
     //declare(strict_types=1);
     require_once dirname(__DIR__) . '/vendor/autoload.php';
     require('../modules/header.php');
@@ -22,24 +30,31 @@
             }
 
             function get_name(){
-                echo $this->name;
+                return $this->name;
             }
 
             function get_number(){
-                echo $this->number;
+                return $this->number;
             }
         }
 
 
         $currentName = $_POST["name"];
+        //$_POST["name"];
         $currentNum = $_POST["number"];
+        //$_POST["number"];
         $currentContact = new Contact($currentName, $currentNum);
 
-        echo $currentContact->getAll();
-       
-        /*echo "Yo num num is" . $currentContact->get_number();
+        echo "Hello " . $currentContact->get_name();
         echo "<br/>";
-        echo $currentContact->get_name();*/
+        echo "Your Phone Number is " . $currentContact->get_number();
+
+
+        array_push($allContacts, $currentContact); 
+
+        echo var_dump($allContacts);
+        echo "<br/>";
+        echo count($allContacts);
     }
 ?>
         
