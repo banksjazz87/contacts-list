@@ -1,9 +1,29 @@
 <?php
     session_start();
+    
     if (!isset($_SESSION["arrContacts"])) {
         $_SESSION["arrContacts"] = array();
     } else {
-        array_push($_SESSION["arrContacts"], $_POST["name"]);
+        class Contact {
+            public $name;
+            public $number;
+
+            function __construct($name, $number){
+                $this->name = $name;
+                $this->number = $number;
+            }
+
+            function get_name(){
+                return $this->name;
+            }
+
+            function get_number(){
+                return $this->number;
+            }
+        }
+
+        $currentContact = new Contact($_POST["name"], $_POST["number"]);
+        array_push($_SESSION["arrContacts"], $currentContact);
     }
 ?>
 <?php
@@ -13,10 +33,36 @@
     require('../modules/footer.php');
     echo "<h1>hello World</h1>";
     require('../modules/form.php');
+
+    class TestObj {
+        public $color;
+        public $name;
+
+        function __construct($color, $name){
+            $this->color = $color;
+            $this->name = $name;
+        }
+
+        function get_name(){
+            return $this->name;
+        }
+
+        function get_color(){
+            return $this->color;
+        }
+
+        function return_all(){
+            return "{name: ".$this->name.", color: ".$this->color."}";
+        }
+    }
+
+    $chris = new TestObj("blue", "Chris");
+
+    echo $chris->return_all();
     
     if (isset($_POST["name"]) && strlen($_POST["name"]) > 0) {
       
-        class Contact {
+        /*class Contact {
             public $name;
             public $number;
 
@@ -57,9 +103,14 @@
         var_dump($currentAll);
         echo "<br/>";
         echo count($currentAll);
-        echo "<br/>";
+        echo "<br/>";*/
         echo var_dump($_SESSION["arrContacts"]);
+
+        for ($i = 0; $i < count($_SESSION["arrContacts"]); $i++) {
+            echo "name: ";
+            echo $_SESSION["arrContacts"]::$i->$currentContact->get_name();
     }
+}
 ?>
         
 
