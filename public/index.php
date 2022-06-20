@@ -1,11 +1,11 @@
 <?php
-  //initialize an empty array for storing all of the contacts
-  $allContacts = [];
-  $allContacts = array();
-  $allContacts = (array) null;
+    session_start();
+    if (!isset($_SESSION["arrContacts"])) {
+        $_SESSION["arrContacts"] = array();
+    } else {
+        array_push($_SESSION["arrContacts"], $_POST["name"]);
+    }
 ?>
-  
-
 <?php
     //declare(strict_types=1);
     require_once dirname(__DIR__) . '/vendor/autoload.php';
@@ -39,10 +39,11 @@
         }
 
 
-        $currentName = $_POST["name"];
+        $currentName = explode(',', $_POST["name"]);
         //$_POST["name"];
-        $currentNum = $_POST["number"];
+        $currentNum = explode(',', $_POST["number"]);
         //$_POST["number"];
+        $pastAll = explode(',', $_POST["allContacts"]);
         $currentContact = new Contact($currentName, $currentNum);
 
         echo "Hello " . $currentContact->get_name();
@@ -50,11 +51,14 @@
         echo "Your Phone Number is " . $currentContact->get_number();
 
 
-        array_push($allContacts, $currentContact); 
+        //array_push($_POST["allContacts"], $currentName); 
+        $currentAll = array_merge($pastAll, $currentName);
 
-        echo var_dump($allContacts);
+        var_dump($currentAll);
         echo "<br/>";
-        echo count($allContacts);
+        echo count($currentAll);
+        echo "<br/>";
+        echo var_dump($_SESSION["arrContacts"]);
     }
 ?>
         
