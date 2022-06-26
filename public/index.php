@@ -1,5 +1,6 @@
 <?php
     require('../modules/contact.php');
+
     function searchForValue($arr, $value) {
         foreach ( $arr as $currentItem ) {
             $currentName = $currentItem->get_name();
@@ -13,7 +14,7 @@
         $_SESSION["arrContacts"] = array();
     } else {
         if ( searchForValue($_SESSION["arrContacts"], $_POST["name"] )){
-            echo "<script>alert('Contact already exists in your contacts');</script>";
+            echo "<script type='text/javascript' language='javascript'>alert('Contact already exists in your contacts');</script>";
         } else {
         $currentContact = new Contact($_POST["name"], $_POST["number"]);
         array_push($_SESSION["arrContacts"], $currentContact);
@@ -35,21 +36,22 @@
             $currentName = $name->get_name();
             array_push($namesArray, $currentName);
         }
-
+        
         return array_unique($namesArray);
     }
 
     if (isset($_POST["name"]) && strlen($_POST["name"]) > 0) {
         $allCurrentContacts = $_SESSION["arrContacts"];
+        sort($allCurrentContacts);
 
-        foreach (allUniqueNames($allCurrentContacts) as $contact) {
-            echo $contact;
-            echo '<br/>';
-            echo '<br/>';
+        foreach ($allCurrentContacts as $contact) {
+            echo '<p class="contact_name">'. $contact->get_name() .'</p>' ;
+            echo '<p class="contact_number">' . $contact->get_number() . '</p>';
         }
     } else {
         echo 'no data';
     }
+
 ?>
         
 
