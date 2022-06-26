@@ -1,0 +1,17 @@
+#main_form {
+    width: 50vw;
+    margin: auto;
+    background-color: var(--bs-dark);
+    padding: 70px 50px 70px 50px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.submit{
+    margin-top: 18px;
+    background-color: var(--bs-orange);
+    border-radius: 12px;
+    border-style: none;
+    padding: 6px 24px 6px 24px;
+    color: var(--bs-light);
+}
