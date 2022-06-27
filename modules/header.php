@@ -3,6 +3,6 @@
 </style>
 
 <?php
-    echo '<h1 id="header">Welcome User</h1>'
+    echo '<header id="header">Contacts</header>';
 ?>
         

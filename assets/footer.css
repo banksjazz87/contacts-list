@@ -2,7 +2,8 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  background-color: red;  
+  height: 48px;
+  background-color: var(--bs-dark);  
   color: white;
   margin: 0;
   padding: 0;

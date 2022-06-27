@@ -40,12 +40,13 @@
     checkForClearRequest();
 
 ?>
+
+<body id="main">
 <?php
     //declare(strict_types=1);
    // require_once dirname(__DIR__) . '/vendor/autoload.php';
     require('../modules/header.php');
     require('../modules/footer.php');
-    echo "<h1>hello World</h1>";
     require('../modules/form.php');
 
     function allUniqueNames($arr) {
@@ -57,19 +58,25 @@
         
         return array_unique($namesArray);
     }
+?>
 
+<div id="contact_container">
+ 
+<?php
     if (isset($_POST["name"]) && strlen($_POST["name"]) > 0) {
         $allCurrentContacts = $_SESSION["arrContacts"];
         sort($allCurrentContacts);
 
         foreach ($allCurrentContacts as $contact) {
-            echo '<p class="contact_name">'. $contact->get_name() .'</p>' ;
-            echo '<p class="contact_number">' . $contact->get_number() . '</p>';
+            echo '<p class="contact_info">'. $contact->get_name() . "  " . $contact->get_number() .'</p>' ;
+            
         }
     } else {
-        echo 'no data';
+        echo  '<p class="no_data"> No Contacts </p>';
     }
 
 ?>
-        
-
+</div>
+</body>
+    
+<link href="../assets/index.css" rel="stylesheet" />
