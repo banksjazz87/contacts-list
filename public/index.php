@@ -24,8 +24,7 @@
         sort($allCurrentContacts);
 
         foreach ($allCurrentContacts as $contact) {
-            echo '<p class="contact_info">'. $contact->get_name() . "  " . $contact->get_number() .'</p>' ;
-            
+            echo '<p class="contact_info">'. $contact->get_name() . "  " . $contact->get_number() .'</p>' ;    
         }
     } else {
         echo  '<p class="no_data"> No Contacts </p>';
