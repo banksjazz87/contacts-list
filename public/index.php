@@ -1,38 +1,30 @@
 <?php 
-    require('../modules/contact.php');
-    session_start();
+    session_start()
 ?>
-<?php
-    //declare(strict_types=1);
-   // require_once dirname(__DIR__) . '/vendor/autoload.php';
-   require('../modules/header.php');
-   require('../modules/footer.php');
-   require('../modules/form.php');
-   require('../methods/formMethods.php');
-
-    //Instatiate a new instance of the the formHandler found in the formMethods file in the methods folder
-    $formTests = new FormHandler();
-    $formTests->checkForCurrentContacts();
-    $formTests->checkForClearRequest();
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+      <link href="../assets/index.css" rel="stylesheet" />
+    </head>
+    <body id="login_body">
+    <?php 
+    require('../modules/footer.php');
+    require('../modules/loginHeader.php');
 ?>
+        <form id="login_form" method="post" typeaction="/routes/contacts.php">
+            <h1>Login</h1>
+            <input type="text" name="username" placeholder="Username" class="input" />
+            <input type="password" name="password" placeholder="password" class="input"/>
+            <input type="submit" value="Submit" class="submit"/>
+        </form>
+        
+    </body>
 
-<link href="../assets/index.css" rel="stylesheet" />
-<div id="contact_container">
-<?php
-    if (isset($_POST["name"]) && strlen($_POST["name"]) > 0) {
-        $allCurrentContacts = $_SESSION["arrContacts"];
-        sort($allCurrentContacts);
-
-        foreach ($allCurrentContacts as $contact) {
-            echo '<p class="contact_info">'. $contact->get_name() . "  " . $contact->get_number() .'</p>' ;    
-        }
-    } else {
-        echo  '<p class="no_data"> No Contacts </p>';
-    }
-
-?>
-</div>
-
-
-
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>

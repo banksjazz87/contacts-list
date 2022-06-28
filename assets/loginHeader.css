@@ -1,0 +1,6 @@
+#header{
+    width: 100vw;
+    background-color: var(--bs-dark);
+    height: 48px;
+    text-align: center;
+}
