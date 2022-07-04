@@ -11,7 +11,7 @@
 </style>
 
 <body id="main">
-<form id="main_form" method="post" action="/public/index.php">
+<form id="main_form" method="post" action="/routes/contacts.php">
     <input type="text" name="name" placeholder="Name" class="input"/>
     <br/>
 

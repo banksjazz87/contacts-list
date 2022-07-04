@@ -6,6 +6,7 @@
     //declare(strict_types=1);
    // require_once dirname(__DIR__) . '/vendor/autoload.php';
    require('../modules/header.php');
+
    require('../modules/footer.php');
    require('../modules/form.php');
    require('../methods/formMethods.php');

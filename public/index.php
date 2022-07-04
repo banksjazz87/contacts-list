@@ -1,5 +1,7 @@
 <?php 
+require('../modules/loginCheck.php');
     session_start()
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,7 @@
     require('../modules/footer.php');
     require('../modules/loginHeader.php');
 ?>
-        <form id="login_form" method="post" typeaction="/routes/contacts.php">
+        <form id="login_form" method="post" typeaction="/modules/loginCheck.php">
             <h1>Login</h1>
             <input type="text" name="username" placeholder="Username" class="input" />
             <input type="password" name="password" placeholder="password" class="input"/>
