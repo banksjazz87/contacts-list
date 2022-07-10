@@ -1,5 +1,4 @@
-<?php 
-require('../modules/loginCheck.php');
+<?php
     session_start()
     
 ?>
@@ -16,6 +15,7 @@ require('../modules/loginCheck.php');
     </head>
     <body id="login_body">
     <?php 
+    require('../modules/loginCheck.php');
     require('../modules/footer.php');
     require('../modules/loginHeader.php');
 ?>
