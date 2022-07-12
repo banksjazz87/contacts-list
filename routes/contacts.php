@@ -18,14 +18,23 @@
 ?>
 
 <link href="../assets/contacts.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/contactEvents.js"></script>
 <div id="contact_container">
+
 <?php
     if (isset($_POST["name"]) && strlen($_POST["name"]) > 0) {
         $allCurrentContacts = $_SESSION["arrContacts"];
         sort($allCurrentContacts);
 
         foreach ($allCurrentContacts as $contact) {
-            echo '<p class="contact_info">'. $contact->get_name() . "  " . $contact->get_number() .'</p>' ;    
+
+?>
+            <p class="contact_info" onclick="contactEvents.initialClick()"> <?php echo $contact->get_name() . " " . $contact->get_number()?></p> 
+            <div id="edit_button_wrapper" style="display: none;">
+                <button>Edit</button>
+                <button>Delete</button>
+            </div> 
+<?php  
         }
     } else {
         echo  '<p class="no_data"> No Contacts </p>';
