@@ -14,3 +14,24 @@
     text-align: center;
 }
 
+#edit_button_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 15vw;
+    margin: auto;
+}
+
+.edit_button {
+    border-radius: 12px;
+    background-color: var(--bs-orange);
+    color: var(--bs-light);
+    border-style: none;
+    padding: 6px 24px 6px 24px;
+}
+
+.edit_button:hover {
+    background-color: var(--bs-highlight-bg);
+    color: black;
+}
+
