@@ -36,9 +36,22 @@
 ?>
             <p class="contact_info" onclick="contactEvents.initialClick()"> <?php echo $contact->get_name() . " " . $contact->get_number()?></p> 
             <div id="edit_button_wrapper" style="display: none;">
-                <button type="button" class="btn btn-small edit_button">Edit</button>
+                <button type="button" class="btn btn-small edit_button" onclick="contactEvents.showEditBox()">Edit</button>
                 <button type="button" class="btn btn-outline-warning btn-small edit_button">Delete</button>
             </div> 
+
+            <div id="edit_box_wrapper" style="display: none;">
+                <form id ='edit_form' action="" method="post">
+                    <label for="edit_name">Name:</label>
+                    <input id="edit_name"type="text" name="name"/>
+
+                    <label for="edit_number">Number:</label>
+                    <input type="text" name="phone_number"/>
+
+                    <input type="submit" value="submit"/>
+                    <input type="submit" value="cancel"/>
+                </form> 
+            </div>
 <?php  
         }
     } else {
