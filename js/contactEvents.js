@@ -33,5 +33,19 @@ const contactEvents = {
         body.style.opacity = '1';
         wrapper.style.display = 'none';
 
+    },
+
+    getNumbersFromId: function(str) {
+        for (let i = 0; i < str.length; i++) {
+            if (parseInt(str[i])) {
+                console.log(parseInt(str[i]));
+            }
+        }
+    }, 
+
+    testing: function(e) {
+        console.log(e.target.id);
     }
+
+
 }

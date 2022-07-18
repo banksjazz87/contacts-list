@@ -31,11 +31,14 @@
         $allCurrentContacts = $_SESSION["arrContacts"];
         sort($allCurrentContacts);
 
-        foreach ($allCurrentContacts as $contact) {
+        foreach ($allCurrentContacts as $index => $contact) {
 
 ?>
-            <p class="contact_info" onclick="contactEvents.initialClick()"> <?php echo $contact->get_name() . " " . $contact->get_number()?></p> 
-            <div id="edit_button_wrapper" style="display: none;">
+            <p id="<?php echo 'contact_info_' . $index ?>" class="contact_info" 
+            onclick="contactEvents.initialClick()"> 
+                <?php echo $index + 1 . " " . $contact->get_name() . " " . $contact->get_number()?>
+            </p> 
+            <div id="<?php echo 'edit_button_wrapper_' . $index ?>"class="edit_button_wrapper" style="display: none;">
                 <button type="button" class="btn btn-small edit_button" onclick="contactEvents.showEditBox()">Edit</button>
                 <button type="button" class="btn btn-outline-warning btn-small edit_button">Delete</button>
             </div> 

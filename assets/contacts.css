@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-#edit_button_wrapper {
+.edit_button_wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
