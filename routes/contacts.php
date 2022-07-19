@@ -26,6 +26,7 @@
 <script type="text/javascript" src="../js/contactEvents.js"></script>
 <div id="contact_container">
 
+
 <?php
     if (isset($_POST["name"]) && strlen($_POST["name"]) > 0) {
         $allCurrentContacts = $_SESSION["arrContacts"];
@@ -34,8 +35,7 @@
         foreach ($allCurrentContacts as $index => $contact) {
 
 ?>
-            <p id="<?php echo 'contact_info_' . $index ?>" class="contact_info" 
-            onclick="contactEvents.initialClick()"> 
+            <p id="<?php echo 'contact_info_' . $index ?>" class="contact_info" onclick="contactEvents.displayEdit(event);"> 
                 <?php echo $index + 1 . " " . $contact->get_name() . " " . $contact->get_number()?>
             </p> 
             <div id="<?php echo 'edit_button_wrapper_' . $index ?>"class="edit_button_wrapper" style="display: none;">

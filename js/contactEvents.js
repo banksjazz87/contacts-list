@@ -42,10 +42,21 @@ const contactEvents = {
             }
         }
     }, 
+    
+    displayEdit: function(e) {
+        e.preventDefault();
+        const currentId = e.target.id;
+        let num = "";
 
-    testing: function(e) {
-        console.log(e.target.id);
-    }
+       for (let i = 0; i < currentId.length; i++) {
+            if (!isNaN(parseInt(currentId[i]))) {
+                num = num + currentId[i];
+            }
+        }
+        
+        
+    },
+
 
 
 }
