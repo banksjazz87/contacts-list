@@ -1,7 +1,7 @@
 const contactEvents = {
     hide: true,
     currentButtonId: "",
-    allContacts: 
+    allContacts: "",
 
     hideButtons: function(){
         const wrapper = document.getElementById(this.currentButtonId);
