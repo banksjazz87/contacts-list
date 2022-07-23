@@ -1,22 +1,15 @@
 const contactEvents = {
     hide: true,
-    initialClick: function(){
-        if (this.hide === true) {
-            this.hide = false;
-            this.showButtons();
-        } else {
-            this.hide = true;
-            this.hideButtons();
-        }
-},
+    currentButtonId: "",
+    allContacts: 
 
     hideButtons: function(){
-        const wrapper = document.getElementById('edit_button_wrapper');
+        const wrapper = document.getElementById(this.currentButtonId);
         wrapper.style.display = 'none';
     }, 
 
     showButtons: function() {
-        const wrapper = document.getElementById('edit_button_wrapper');
+        const wrapper = document.getElementById(this.currentButtonId);
         wrapper.style.display = 'flex';
     },
 
@@ -36,25 +29,22 @@ const contactEvents = {
     },
 
     getNumbersFromId: function(str) {
-        for (let i = 0; i < str.length; i++) {
-            if (parseInt(str[i])) {
-                console.log(parseInt(str[i]));
-            }
-        }
-    }, 
-    
-    displayEdit: function(e) {
-        e.preventDefault();
-        const currentId = e.target.id;
         let num = "";
 
-       for (let i = 0; i < currentId.length; i++) {
-            if (!isNaN(parseInt(currentId[i]))) {
-                num = num + currentId[i];
+        for (let i = 0; i < str.length; i++) {
+            if (!isNaN(parseInt(str[i]))) {
+                num = num + str[i]
             }
         }
-        
-        
+        return num;
+    }, 
+    
+    displayEditButtons: function(e) {
+        e.preventDefault();
+        const currentId = e.target.id;
+        this.currentButtonId = "edit_button_wrapper_" + this.getNumbersFromId(currentId);
+
+        this.showButtons();     
     },
 
 
